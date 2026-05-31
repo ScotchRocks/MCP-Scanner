@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import LoginPage from './pages/LoginPage';
 import PricingPage from './pages/PricingPage';
 import DashboardPage from './pages/DashboardPage';
+import HelpPage from './pages/HelpPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/dashboard" element={<Layout><DashboardPage /></Layout>} />
+        <Route path="/help" element={<Layout><HelpPage /></Layout>} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

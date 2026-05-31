@@ -80,8 +80,8 @@ export default function DashboardPage() {
         </div>
       )}
 
-      {/* Free-tier Ad Banner */}
-      {needUpgrade && <AdBanner position="between" format="banner" />}
+      {/* Free-tier compact ad */}
+      {needUpgrade && <AdBanner position="between" compact />}
 
       {/* New Scan Form */}
       <div className="card" style={{ marginBottom: '2rem' }}>
@@ -155,8 +155,8 @@ export default function DashboardPage() {
         </div>
       )}
 
-      {/* Free-tier Ad Banner between sections */}
-      {needUpgrade && <AdBanner position="between" format="rectangle" />}
+      {/* Free-tier compact ad between sections */}
+      {needUpgrade && <AdBanner position="bottom" compact />}
 
       {/* Recent Scans */}
       <h2 style={{ fontSize: '1.15rem', fontWeight: 600, marginBottom: '1rem' }}>Recent Scans</h2>
