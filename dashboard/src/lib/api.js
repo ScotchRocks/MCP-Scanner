@@ -75,3 +75,10 @@ export async function saveScan(scanData) {
     body: JSON.stringify(scanData),
   });
 }
+
+export async function runScan(endpoint, timeout = 10000) {
+  return request('/scans/run', {
+    method: 'POST',
+    body: JSON.stringify({ endpoint, timeout }),
+  });
+}

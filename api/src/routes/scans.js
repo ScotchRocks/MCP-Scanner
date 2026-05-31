@@ -4,7 +4,58 @@ import { randomBytes } from 'crypto';
 import { queryAll, queryOne, run } from '../db/database.js';
 import { requireAuth, requireSubscription } from '../middleware/auth.js';
 
+// Dynamic import of the scanner (CLI code, available in the monorepo)
+let scanEndpoint;
+try {
+  const scanner = await import('../../cli/src/scanner.js');
+  scanEndpoint = scanner.scanEndpoint;
+} catch (e) {
+  // Fallback if CLI not available
+  scanEndpoint = null;
+}
+
 const router = Router();
+
+/**
+ * POST /api/scans/run — Run a scan on an endpoint (authenticated)
+ * Body: { endpoint, timeout? }
+ */
+router.post('/scans/run', requireAuth, async (req, res) => {
+  const { endpoint, timeout } = req.body;
+
+  if (!endpoint) {
+    return res.status(400).json({ error: 'endpoint is required' });
+  }
+
+  try {
+    // Import and run the CLI scanner dynamically
+    const { scanEndpoint: runScan } = await import('../../cli/src/scanner.js');
+    
+    const result = await runScan(endpoint, { 
+      timeout: parseInt(timeout) || 10000 
+    });
+
+    // Save the result
+    const id = uuidv4();
+    run(
+      'INSERT INTO scans (id, user_id, endpoint, trust_score, grade, checks_data, summary) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [id, req.user.id, endpoint, result.trustScore, result.grade || '', JSON.stringify(result.checks || []), JSON.stringify(result.summary || {})]
+    );
+
+    res.status(201).json({
+      id,
+      endpoint: result.endpoint,
+      trustScore: result.trustScore,
+      grade: result.grade,
+      checks: result.checks,
+      summary: result.summary,
+      timestamp: result.timestamp,
+    });
+  } catch (err) {
+    console.error('Scan run error:', err);
+    res.status(500).json({ error: `Scan failed: ${err.message}` });
+  }
+});
 
 /**
  * POST /api/scans — Save a scan result (authenticated)
