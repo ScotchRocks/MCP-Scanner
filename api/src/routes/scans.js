@@ -7,7 +7,7 @@ import { requireAuth, requireSubscription } from '../middleware/auth.js';
 // Dynamic import of the scanner (CLI code, available in the monorepo)
 let scanEndpoint;
 try {
-  const scanner = await import('../../cli/src/scanner.js');
+  const scanner = await import('../../../cli/src/scanner.js');
   scanEndpoint = scanner.scanEndpoint;
 } catch (e) {
   // Fallback if CLI not available
@@ -29,7 +29,7 @@ router.post('/scans/run', requireAuth, async (req, res) => {
 
   try {
     // Import and run the CLI scanner dynamically
-    const { scanEndpoint: runScan } = await import('../../cli/src/scanner.js');
+    const { scanEndpoint: runScan } = await import('../../../cli/src/scanner.js');
     
     const result = await runScan(endpoint, { 
       timeout: parseInt(timeout) || 10000 
