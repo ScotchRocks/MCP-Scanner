@@ -1,0 +1,22 @@
+{
+  "name": "mcp-scanner-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP Security Scanner API — subscription management, scan history, and compliance reports",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "sql.js": "^1.10.0",
+    "stripe": "^16.0.0",
+    "uuid": "^9.0.0"
+  }
+}

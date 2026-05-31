@@ -1,0 +1,15 @@
+{
+  "name": "mcp-security-scanner-root",
+  "private": true,
+  "workspaces": [
+    "api",
+    "cli",
+    "dashboard"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "build:dashboard": "npm run build --workspace=dashboard",
+    "start:api": "npm run start --workspace=api",
+    "scan": "npm run scan --workspace=cli --"
+  }
+}
