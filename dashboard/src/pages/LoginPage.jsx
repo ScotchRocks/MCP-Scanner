@@ -29,10 +29,13 @@ export default function LoginPage() {
           <p style={{ color: '#94a3b8', marginTop: '0.5rem', fontSize: '0.9rem' }}>
             Security auditing for AI agent endpoints
           </p>
+          <div style={{ marginTop: '0.75rem', display: 'inline-block', background: 'linear-gradient(135deg, #065f46, #047857)', color: '#6ee7b7', padding: '0.25rem 1rem', borderRadius: '1rem', fontSize: '0.8rem', fontWeight: 600 }}>
+            🆓 Basic scanning is free — no credit card required
+          </div>
           <div style={{ marginTop: '1rem', textAlign: 'left', background: '#0f172a', borderRadius: '0.5rem', padding: '1rem', border: '1px solid #1e293b' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
               <span style={{ color: '#22c55e', fontSize: '1.1rem' }}>✓</span>
-              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 500 }}>Scan any MCP endpoint for vulnerabilities</span>
+              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 500 }}>Scan any MCP endpoint for vulnerabilities — <strong style={{ color: '#6ee7b7' }}>free</strong></span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
               <span style={{ color: '#22c55e', fontSize: '1.1rem' }}>✓</span>
