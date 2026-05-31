@@ -12,7 +12,7 @@ export default function LoginPage() {
     setError('');
     try {
       const data = await login(email);
-      window.location.href = data.user.tier !== 'free' ? '/dashboard' : '/pricing';
+      window.location.href = '/dashboard';
     } catch (err) {
       setError(err.message);
     } finally {
@@ -26,9 +26,27 @@ export default function LoginPage() {
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🔐</div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: 800 }} className="gradient-text">MCP Scanner</h1>
-          <p style={{ color: '#64748b', marginTop: '0.5rem', fontSize: '0.9rem' }}>
+          <p style={{ color: '#94a3b8', marginTop: '0.5rem', fontSize: '0.9rem' }}>
             Security auditing for AI agent endpoints
           </p>
+          <div style={{ marginTop: '1rem', textAlign: 'left', background: '#0f172a', borderRadius: '0.5rem', padding: '1rem', border: '1px solid #1e293b' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <span style={{ color: '#22c55e', fontSize: '1.1rem' }}>✓</span>
+              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 500 }}>Scan any MCP endpoint for vulnerabilities</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <span style={{ color: '#22c55e', fontSize: '1.1rem' }}>✓</span>
+              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 500 }}>Get a Trust Score (0-100) with detailed security report</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <span style={{ color: '#22c55e', fontSize: '1.1rem' }}>✓</span>
+              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 500 }}>Detect SSRF, injection, credential leaks &amp; more</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: '#22c55e', fontSize: '1.1rem' }}>✓</span>
+              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 500 }}>CI/CD ready — add to your pipeline in minutes</span>
+            </div>
+          </div>
         </div>
         
         <form onSubmit={handleSubmit}>
