@@ -7,19 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mcp-scanner.marketforge.dev/login</loc>
+    <loc>https://mcp-security-scanner-production.up.railway.app/login</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mcp-scanner.marketforge.dev/pricing</loc>
+    <loc>https://mcp-security-scanner-production.up.railway.app/pricing</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp-scanner.marketforge.dev/dashboard</loc>
+    <loc>https://mcp-security-scanner-production.up.railway.app/dashboard</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
