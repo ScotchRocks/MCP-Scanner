@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getScans, getScanStats, runScan, getUser } from '../lib/api';
+import AdBanner from '../components/AdBanner';
 
 const scoreColor = (score) => {
   if (score >= 80) return '#22c55e';
@@ -79,6 +80,9 @@ export default function DashboardPage() {
         </div>
       )}
 
+      {/* Free-tier Ad Banner */}
+      {needUpgrade && <AdBanner position="between" format="banner" />}
+
       {/* New Scan Form */}
       <div className="card" style={{ marginBottom: '2rem' }}>
         <h3 style={{ fontSize: '1.15rem', fontWeight: 600, marginBottom: '0.75rem' }}>🔍 Run a Scan</h3>
@@ -150,6 +154,9 @@ export default function DashboardPage() {
           ))}
         </div>
       )}
+
+      {/* Free-tier Ad Banner between sections */}
+      {needUpgrade && <AdBanner position="between" format="rectangle" />}
 
       {/* Recent Scans */}
       <h2 style={{ fontSize: '1.15rem', fontWeight: 600, marginBottom: '1rem' }}>Recent Scans</h2>

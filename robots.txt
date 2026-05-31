@@ -1,0 +1,6 @@
+# robots.txt — MCP Security Scanner
+# https://mcp-security-scanner-production.up.railway.app/
+
+User-agent: *
+Allow: /
+Sitemap: https://mcp-security-scanner-production.up.railway.app/sitemap.xml
