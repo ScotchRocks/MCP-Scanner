@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { login } from '../lib/api';
+import RadarScan from '../components/RadarScan';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -24,7 +25,7 @@ export default function LoginPage() {
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f172a' }}>
       <div className="card" style={{ width: 400, padding: '2.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🔐</div>
+          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}><RadarScan size={72} /></div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: 800 }} className="gradient-text">MCP Scanner</h1>
           <p style={{ color: '#94a3b8', marginTop: '0.5rem', fontSize: '0.9rem' }}>
             Security auditing for AI agent endpoints

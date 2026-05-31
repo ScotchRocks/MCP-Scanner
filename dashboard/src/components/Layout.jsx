@@ -1,4 +1,5 @@
 import React from 'react';
+import RadarScan from './RadarScan';
 
 const styles = {
   container: { minHeight: '100vh', background: '#0f172a', display: 'flex', flexDirection: 'column' },
@@ -13,7 +14,17 @@ export default function Layout({ children }) {
   return (
     <div style={styles.container}>
       <header style={styles.header}>
-        <a href="/dashboard" style={styles.logo}>🔐 MCP Scanner</a>
+        <a href="/dashboard" style={{ ...styles.logo, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <svg width="20" height="20" viewBox="0 0 100 100" style={{ flexShrink: 0 }}>
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#22c55e" strokeWidth="0.8" opacity="0.5" />
+            <circle cx="50" cy="50" r="32" fill="none" stroke="#22c55e" strokeWidth="0.5" opacity="0.3" strokeDasharray="4 4" />
+            <circle cx="50" cy="50" r="18" fill="none" stroke="#22c55e" strokeWidth="0.5" opacity="0.2" strokeDasharray="3 6" />
+            <line x1="50" y1="50" x2="50" y2="4" stroke="#22c55e" strokeWidth="1.2" opacity="0.9" strokeLinecap="round">
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="3s" repeatCount="indefinite" />
+            </line>
+            <circle cx="50" cy="50" r="2.5" fill="#22c55e" opacity="0.9" />
+          </svg>
+          MCP Scanner</a>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <a href="/help" style={{ color: '#64748b', fontSize: '0.85rem', textDecoration: 'none' }}>Help</a>
           <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>{user.email}</span>
