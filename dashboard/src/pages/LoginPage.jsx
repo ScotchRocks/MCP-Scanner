@@ -81,6 +81,35 @@ export default function LoginPage() {
           </button>
         </form>
 
+        {/* Try It Now — sample scan results */}
+        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+          <p style={{ color: '#64748b', fontSize: '0.7rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.75rem' }}>
+            Try It Now — Sample Scans
+          </p>
+          <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+            {[
+              { label: 'GitHub API', score: 92, grade: 'A+', color: '#22c55e' },
+              { label: 'OpenAI API', score: 87, grade: 'A', color: '#22c55e' },
+              { label: 'HTTP Site', score: 62, grade: 'C', color: '#f97316' },
+            ].map((item, i) => (
+              <div key={i} style={{
+                flex: 1,
+                background: '#0f172a',
+                borderRadius: '0.5rem',
+                padding: '0.5rem 0.4rem',
+                border: '1px solid #1e293b',
+                maxWidth: 110,
+              }}>
+                <div style={{ fontSize: '0.55rem', color: '#64748b', fontWeight: 500, marginBottom: '0.15rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {item.label}
+                </div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 800, color: item.color, lineHeight: 1.1 }}>{item.score}</div>
+                <div style={{ fontSize: '0.55rem', color: item.color, fontWeight: 600 }}>{item.grade}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* FAQ Section */}
         <div style={{ marginTop: '1.5rem', textAlign: 'left' }}>
           <details style={{ marginBottom: '0.5rem', background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
