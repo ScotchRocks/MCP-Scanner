@@ -81,10 +81,10 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Try It Now — sample scan results */}
+        {/* Sample Scan Results */}
         <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
           <p style={{ color: '#64748b', fontSize: '0.7rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.75rem' }}>
-            Try It Now — Sample Scans
+            Sample Scores from Real Scans
           </p>
           <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
             {[
