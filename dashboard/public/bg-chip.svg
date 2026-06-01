@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Base silicon wafer color -->
+    <linearGradient id="wafer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="50%" stop-color="#0f1f3a"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </linearGradient>
+    
+    <!-- Circuit trace glow -->
+    <filter id="traceGlow">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle green glow for active areas -->
+    <radialGradient id="chipGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base wafer -->
+  <rect width="1920" height="1080" fill="url(#wafer)"/>
+  <rect width="1920" height="1080" fill="url(#chipGlow)"/>
+
+  <!-- Die grid pattern -->
+  <g stroke="#22c55e" stroke-width="0.5" opacity="0.06">
+    <line x1="0" y1="120" x2="1920" y2="120"/>
+    <line x1="0" y1="240" x2="1920" y2="240"/>
+    <line x1="0" y1="360" x2="1920" y2="360"/>
+    <line x1="0" y1="480" x2="1920" y2="480"/>
+    <line x1="0" y1="600" x2="1920" y2="600"/>
+    <line x1="0" y1="720" x2="1920" y2="720"/>
+    <line x1="0" y1="840" x2="1920" y2="840"/>
+    <line x1="0" y1="960" x2="1920" y2="960"/>
+    <line x1="213" y1="0" x2="213" y2="1080"/>
+    <line x1="426" y1="0" x2="426" y2="1080"/>
+    <line x1="640" y1="0" x2="640" y2="1080"/>
+    <line x1="853" y1="0" x2="853" y2="1080"/>
+    <line x1="1066" y1="0" x2="1066" y2="1080"/>
+    <line x1="1280" y1="0" x2="1280" y2="1080"/>
+    <line x1="1493" y1="0" x2="1493" y2="1080"/>
+    <line x1="1706" y1="0" x2="1706" y2="1080"/>
+  </g>
+
+  <!-- Bond pads at die edges -->
+  <g fill="#22c55e" opacity="0.08">
+    <rect x="90" y="100" width="30" height="15" rx="1"/>
+    <rect x="90" y="130" width="30" height="15" rx="1"/>
+    <rect x="90" y="160" width="30" height="15" rx="1"/>
+    <rect x="90" y="190" width="30" height="15" rx="1"/>
+    <rect x="310" y="100" width="30" height="15" rx="1"/>
+    <rect x="310" y="130" width="30" height="15" rx="1"/>
+    <rect x="310" y="160" width="30" height="15" rx="1"/>
+    <rect x="520" y="340" width="30" height="15" rx="1"/>
+    <rect x="520" y="370" width="30" height="15" rx="1"/>
+    <rect x="520" y="400" width="30" height="15" rx="1"/>
+    <rect x="750" y="340" width="30" height="15" rx="1"/>
+    <rect x="750" y="370" width="30" height="15" rx="1"/>
+    <rect x="990" y="220" width="30" height="15" rx="1"/>
+    <rect x="990" y="250" width="30" height="15" rx="1"/>
+    <rect x="1230" y="100" width="30" height="15" rx="1"/>
+    <rect x="1230" y="130" width="30" height="15" rx="1"/>
+    <rect x="1450" y="460" width="30" height="15" rx="1"/>
+    <rect x="1450" y="490" width="30" height="15" rx="1"/>
+    <rect x="1680" y="100" width="30" height="15" rx="1"/>
+    <rect x="1680" y="130" width="30" height="15" rx="1"/>
+  </g>
+
+  <!-- Main horizontal data bus traces -->
+  <g stroke="#22c55e" stroke-width="1.5" opacity="0.15" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#traceGlow)">
+    <!-- Top bus -->
+    <path d="M50 50 h400 v40 h200 v-20 h300 v30 h200 v20 h300 v-40 h200"/>
+    <path d="M50 80 h200 v30 h400 v-20 h300 v40 h200 v-30 h300"/>
+    <!-- Middle bus -->
+    <path d="M50 540 h600 v-40 h200 v60 h300 v-30 h200 v40 h300"/>
+    <path d="M50 580 h300 v30 h200 v-40 h400 v50 h200 v-30 h300"/>
+    <!-- Bottom bus -->
+    <path d="M50 900 h500 v40 h200 v-30 h400 v50 h200 v-40 h300"/>
+    <path d="M50 940 h300 v-30 h400 v40 h200 v-50 h300 v30 h200"/>
+  </g>
+
+  <!-- Vertical data bus traces -->
+  <g stroke="#22c55e" stroke-width="1.2" opacity="0.12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M213 50 v200 h40 v300 h-20 v200 h20 v300"/>
+    <path d="M426 50 v150 h-30 v400 h40 v200 h-20 v250"/>
+    <path d="M640 50 v300 h30 v200 h-40 v300 h20 v200"/>
+    <path d="M853 50 v100 h-20 v600 h30 v200 h-40 v150"/>
+    <path d="M1066 50 v400 h40 v200 h-30 v300 h20 v150"/>
+    <path d="M1280 50 v250 h-30 v400 h40 v200 h-20 v200"/>
+    <path d="M1493 50 v150 h20 v500 h-40 v200 h30 v200"/>
+    <path d="M1706 50 v350 h30 v200 h-20 v300 h40 v200"/>
+  </g>
+
+  <!-- Cross connections between buses -->
+  <g stroke="#22c55e" stroke-width="1" opacity="0.1" fill="none">
+    <path d="M250 250 h300 v-30 h100"/>
+    <path d="M700 450 h200 v40 h150"/>
+    <path d="M400 680 h350 v-20 h200"/>
+    <path d="M900 350 h250 v30 h100"/>
+    <path d="M1100 750 h200 v-40 h150"/>
+    <path d="M150 780 h300 v20 h200"/>
+    <path d="M1300 250 h200 v-30 h100"/>
+    <path d="M600 100 h300 v30 h150"/>
+  </g>
+
+  <!-- Data path routing lines -->
+  <g stroke="#22c55e" stroke-width="0.8" opacity="0.08" fill="none">
+    <path d="M300 120 v80 h150 v-40 h100 v60 h200"/>
+    <path d="M800 300 v-80 h200 v60 h100 v-30 h150"/>
+    <path d="M500 600 v100 h250 v-40 h150 v80 h200"/>
+    <path d="M100 400 v150 h300 v-60 h200 v90 h100"/>
+    <path d="M1200 500 v-120 h200 v80 h100 v-40 h150"/>
+    <path d="M1600 200 v100 h100 v-60 h50"/>
+    <path d="M1400 800 v-80 h150 v60 h100"/>
+    <path d="M200 850 v80 h400 v-40 h200"/>
+    <path d="M900 900 v-120 h300 v80 h150"/>
+  </g>
+
+  <!-- Via / connection dots -->
+  <g fill="#22c55e" opacity="0.25">
+    <circle cx="250" cy="250" r="3"/>
+    <circle cx="700" cy="450" r="3"/>
+    <circle cx="400" cy="680" r="3"/>
+    <circle cx="900" cy="350" r="3"/>
+    <circle cx="1100" cy="750" r="3"/>
+    <circle cx="150" cy="780" r="3"/>
+    <circle cx="1300" cy="250" r="3"/>
+    <circle cx="600" cy="100" r="3"/>
+    <circle cx="300" cy="120" r="2.5"/>
+    <circle cx="800" cy="300" r="2.5"/>
+    <circle cx="500" cy="600" r="2.5"/>
+    <circle cx="100" cy="400" r="2.5"/>
+    <circle cx="1200" cy="500" r="2.5"/>
+    <circle cx="1600" cy="200" r="2.5"/>
+    <circle cx="1400" cy="800" r="2.5"/>
+    <circle cx="200" cy="850" r="2.5"/>
+    <circle cx="900" cy="900" r="2.5"/>
+  </g>
+
+  <!-- Functional block outlines (like CPU cores / cache blocks) -->
+  <g fill="none" stroke="#22c55e" stroke-width="1" opacity="0.07">
+    <rect x="80" y="80" width="160" height="160" rx="4"/>
+    <rect x="320" y="80" width="160" height="120" rx="4"/>
+    <rect x="550" y="80" width="200" height="180" rx="4"/>
+    <rect x="850" y="80" width="140" height="200" rx="4"/>
+    <rect x="1100" y="80" width="180" height="140" rx="4"/>
+    <rect x="1400" y="80" width="160" height="160" rx="4"/>
+    <rect x="1650" y="80" width="160" height="140" rx="4"/>
+    
+    <rect x="80" y="320" width="200" height="200" rx="4"/>
+    <rect x="360" y="320" width="180" height="160" rx="4"/>
+    <rect x="620" y="320" width="160" height="220" rx="4"/>
+    <rect x="880" y="320" width="180" height="180" rx="4"/>
+    <rect x="1160" y="320" width="160" height="200" rx="4"/>
+    <rect x="1420" y="320" width="200" height="160" rx="4"/>
+    <rect x="1680" y="300" width="160" height="200" rx="4"/>
+
+    <rect x="80" y="600" width="180" height="180" rx="4"/>
+    <rect x="340" y="600" width="200" height="160" rx="4"/>
+    <rect x="620" y="600" width="160" height="200" rx="4"/>
+    <rect x="880" y="580" width="200" height="180" rx="4"/>
+    <rect x="1170" y="600" width="180" height="160" rx="4"/>
+    <rect x="1450" y="580" width="160" height="200" rx="4"/>
+    <rect x="1680" y="600" width="180" height="160" rx="4"/>
+
+    <rect x="80" y="860" width="200" height="160" rx="4"/>
+    <rect x="360" y="840" width="160" height="180" rx="4"/>
+    <rect x="620" y="860" width="180" height="140" rx="4"/>
+    <rect x="880" y="850" width="160" height="170" rx="4"/>
+    <rect x="1140" y="860" width="200" height="160" rx="4"/>
+    <rect x="1420" y="840" width="180" height="180" rx="4"/>
+    <rect x="1680" y="860" width="160" height="160" rx="4"/>
+  </g>
+
+  <!-- Decimal / register labels -->
+  <g fill="#22c55e" opacity="0.04" font-family="monospace" font-size="8">
+    <text x="100" y="115">R0</text>
+    <text x="340" y="115">R1</text>
+    <text x="580" y="115">R2</text>
+    <text x="880" y="115">R3</text>
+    <text x="1130" y="115">R4</text>
+    <text x="1430" y="115">R5</text>
+    <text x="1680" y="115">R6</text>
+    <text x="100" y="355">ALU</text>
+    <text x="380" y="355">L2</text>
+    <text x="650" y="355">MEM</text>
+    <text x="910" y="355">CTRL</text>
+    <text x="1190" y="355">IO</text>
+    <text x="1450" y="355">DSP</text>
+    <text x="1710" y="335">FPU</text>
+  </g>
+
+  <!-- Scan line overlay (subtle animated line) -->
+  <line x1="0" y1="0" x2="1920" y2="0" stroke="#22c55e" stroke-width="1" opacity="0.03">
+    <animate attributeName="y1" values="0;1080" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="0;1080" dur="8s" repeatCount="indefinite"/>
+  </line>
+</svg>
