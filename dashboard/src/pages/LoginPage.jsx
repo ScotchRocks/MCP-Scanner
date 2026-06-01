@@ -29,7 +29,7 @@ export default function LoginPage() {
           <div style={{ marginBottom: '0.75rem' }}><RadarScan size={72} /></div>
           <h1 style={{ lineHeight: 1.2 }}>
             <span style={{ display: 'block', fontSize: '1.1rem', fontWeight: 700, color: '#ef4444', letterSpacing: '0.02em' }}>100% Free</span>
-            <span style={{ display: 'block', fontSize: '2rem', fontWeight: 800 }} className="gradient-text">MCP Scanner Pro</span>
+            <span style={{ display: 'block', fontSize: '2rem', fontWeight: 800 }}>MCP Scanner<span style={{ color: '#f97316' }}> Pro</span></span>
           </h1>
           <p style={{ color: '#94a3b8', marginTop: '0.5rem', fontSize: '0.9rem' }}>
             Free security auditing for AI agent endpoints

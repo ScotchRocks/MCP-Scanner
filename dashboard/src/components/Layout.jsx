@@ -23,7 +23,7 @@ export default function Layout({ children }) {
             </line>
             <circle cx="50" cy="50" r="2.5" fill="#22c55e" opacity="0.9" />
           </svg>
-          MCP Scanner</a>
+          MCP Scanner<span style={{ color: '#f97316' }}> Pro</span></a>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <a href="/help" style={{ color: '#64748b', fontSize: '0.85rem', textDecoration: 'none' }}>Help</a>
           <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>{user.email}</span>
