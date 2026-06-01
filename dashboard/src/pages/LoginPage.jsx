@@ -24,7 +24,10 @@ export default function LoginPage() {
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f172a' }}>
       <div className="card" style={{ width: 400, padding: '2.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 800 }} className="gradient-text">100% Free MCP Scanner</h1>
+          <h1 style={{ lineHeight: 1.2 }}>
+            <span style={{ display: 'block', fontSize: '1.1rem', fontWeight: 700, color: '#ef4444', letterSpacing: '0.02em' }}>100% Free</span>
+            <span style={{ display: 'block', fontSize: '2rem', fontWeight: 800 }} className="gradient-text">MCP Scanner</span>
+          </h1>
           <p style={{ color: '#94a3b8', marginTop: '0.5rem', fontSize: '0.9rem' }}>
             Free security auditing for AI agent endpoints
           </p>
