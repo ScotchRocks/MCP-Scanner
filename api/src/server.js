@@ -48,7 +48,7 @@ async function start() {
   app.use('/api', stripeRoutes);
   app.use('/api', scanRoutes);
 
-  // SEO static files — robots.txt and sitemap.xml (before catch-all)
+  // SEO static files — robots.txt, sitemap.xml, and ads.txt (before catch-all)
   const projectRoot = join(__dirname, '..', '..');
   app.get('/robots.txt', (req, res) => {
     res.type('text/plain');
@@ -57,6 +57,10 @@ async function start() {
   app.get('/sitemap.xml', (req, res) => {
     res.type('application/xml');
     res.sendFile(join(projectRoot, 'sitemap.xml'));
+  });
+  app.get('/ads.txt', (req, res) => {
+    res.type('text/plain');
+    res.sendFile(join(projectRoot, 'ads.txt'));
   });
 
   // Serve static dashboard in production
