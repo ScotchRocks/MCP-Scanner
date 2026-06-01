@@ -1,5 +1,4 @@
 import React from 'react';
-import RadarScan from './RadarScan';
 
 const styles = {
   container: { minHeight: '100vh', background: '#0f172a', display: 'flex', flexDirection: 'column' },
@@ -29,10 +28,10 @@ export default function Layout({ children }) {
           <a href="/help" style={{ color: '#64748b', fontSize: '0.85rem', textDecoration: 'none' }}>Help</a>
           <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>{user.email}</span>
           <span style={{ 
-            background: user.tier === 'basic_pro' ? '#3b82f6' : user.tier === 'team' ? '#8b5cf6' : '#334155',
-            color: 'white', padding: '0.2rem 0.6rem', borderRadius: '1rem', fontSize: '0.75rem', fontWeight: 600 
+            background: '#065f46',
+            color: '#6ee7b7', padding: '0.2rem 0.6rem', borderRadius: '1rem', fontSize: '0.75rem', fontWeight: 600 
           }}>
-            {user.tier || 'free'}
+            free
           </span>
           <button className="btn-secondary" style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem' }}
             onClick={() => { localStorage.clear(); window.location.href = '/login'; }}>

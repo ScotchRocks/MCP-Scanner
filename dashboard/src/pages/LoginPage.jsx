@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { login } from '../lib/api';
-import RadarScan from '../components/RadarScan';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -25,13 +24,12 @@ export default function LoginPage() {
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f172a' }}>
       <div className="card" style={{ width: 400, padding: '2.5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}><RadarScan size={72} /></div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: 800 }} className="gradient-text">MCP Scanner</h1>
           <p style={{ color: '#94a3b8', marginTop: '0.5rem', fontSize: '0.9rem' }}>
-            Security auditing for AI agent endpoints
+            Free security auditing for AI agent endpoints
           </p>
           <div style={{ marginTop: '0.75rem', display: 'inline-block', background: 'linear-gradient(135deg, #065f46, #047857)', color: '#6ee7b7', padding: '0.25rem 1rem', borderRadius: '1rem', fontSize: '0.8rem', fontWeight: 600 }}>
-            🆓 Basic scanning is free — no credit card required
+            🆓 Completely free — no credit card required
           </div>
           <div style={{ marginTop: '1rem', textAlign: 'left', background: '#0f172a', borderRadius: '0.5rem', padding: '1rem', border: '1px solid #1e293b' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
@@ -73,13 +71,9 @@ export default function LoginPage() {
           )}
           
           <button type="submit" className="btn-primary" style={{ width: '100%', fontSize: '1rem' }} disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign in / Register'}
+            {loading ? 'Signing in...' : 'Get Started — It\'s Free'}
           </button>
         </form>
-        
-        <p style={{ textAlign: 'center', color: '#475569', fontSize: '0.75rem', marginTop: '1.5rem' }}>
-          Free tier includes basic CLI scanner. Upgrade for cloud features.
-        </p>
       </div>
     </div>
   );

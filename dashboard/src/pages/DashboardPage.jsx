@@ -17,7 +17,6 @@ export default function DashboardPage() {
   const [scanning, setScanning] = useState(false);
   const [scanResult, setScanResult] = useState(null);
   const [scanError, setScanError] = useState('');
-  const user = getUser();
 
   useEffect(() => {
     Promise.all([
@@ -34,8 +33,6 @@ export default function DashboardPage() {
     return <div style={{ textAlign: 'center', padding: '4rem', color: '#64748b' }}>Loading dashboard...</div>;
   }
 
-  const needUpgrade = user?.tier === 'free';
-
   const handleRunScan = async () => {
     if (!scanUrl.trim()) return;
     setScanning(true);
@@ -44,7 +41,6 @@ export default function DashboardPage() {
     try {
       const result = await runScan(scanUrl.trim());
       setScanResult(result);
-      // Refresh stats and scan list
       const [s, sc] = await Promise.all([
         getScanStats().catch(() => null),
         getScans().catch(() => ({ scans: [] })),
@@ -64,24 +60,12 @@ export default function DashboardPage() {
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '1.75rem', fontWeight: 700 }}>Dashboard</h1>
         <p style={{ color: '#64748b', marginTop: '0.25rem' }}>
-          {needUpgrade 
-            ? 'View basic scan results and upgrade for full history' 
-            : 'Your scan history and compliance overview'}
+          Your scan history and security overview — completely free
         </p>
       </div>
 
-      {needUpgrade && (
-        <div className="card" style={{ background: '#1e1b4b', border: '1px solid #3b3b8b', marginBottom: '2rem', padding: '1rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <strong style={{ color: '#c4b5fd' }}>🔒 Free Plan</strong>
-            <span style={{ color: '#94a3b8', marginLeft: '0.75rem', fontSize: '0.85rem' }}>Upgrade for unlimited scan history, API keys, and compliance reports</span>
-          </div>
-          <a href="/pricing" className="btn-primary" style={{ textDecoration: 'none', padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Upgrade →</a>
-        </div>
-      )}
-
-      {/* Free-tier compact ad */}
-      {needUpgrade && <AdBanner position="between" compact />}
+      {/* Ad Banner */}
+      <AdBanner position="between" compact />
 
       {/* New Scan Form */}
       <div className="card" style={{ marginBottom: '2rem' }}>
@@ -155,8 +139,8 @@ export default function DashboardPage() {
         </div>
       )}
 
-      {/* Free-tier compact ad between sections */}
-      {needUpgrade && <AdBanner position="bottom" compact />}
+      {/* Ad Banner */}
+      <AdBanner position="bottom" compact />
 
       {/* Recent Scans */}
       <h2 style={{ fontSize: '1.15rem', fontWeight: 600, marginBottom: '1rem' }}>Recent Scans</h2>
