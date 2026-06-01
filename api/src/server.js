@@ -62,6 +62,10 @@ async function start() {
     res.type('text/plain');
     res.sendFile(join(projectRoot, 'ads.txt'));
   });
+  app.get('/googlea8ca4793dfadea79.html', (req, res) => {
+    res.type('text/html');
+    res.sendFile(join(projectRoot, 'googlea8ca4793dfadea79.html'));
+  });
 
   // Serve static dashboard in production
   const dashboardPath = join(__dirname, '..', '..', 'dashboard', 'dist');
