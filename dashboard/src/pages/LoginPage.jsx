@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../lib/api';
 import RadarScan from '../components/RadarScan';
+import AdBanner from '../components/AdBanner';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -79,6 +80,33 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Get Started — It\'s Free'}
           </button>
         </form>
+
+        {/* FAQ Section */}
+        <div style={{ marginTop: '1.5rem', textAlign: 'left' }}>
+          <details style={{ marginBottom: '0.5rem', background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
+            <summary style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600 }}>How does the scanner work?</summary>
+            <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '0.5rem', lineHeight: 1.5 }}>
+              Enter any MCP endpoint URL and click Scan. Our engine runs 7 security checks (SSRF, path traversal, credential leaks, auth, TLS, rate limiting, injection) and generates a Trust Score from 0-100.
+            </p>
+          </details>
+          <details style={{ marginBottom: '0.5rem', background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
+            <summary style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600 }}>Is it really free?</summary>
+            <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '0.5rem', lineHeight: 1.5 }}>
+              Yes! 100% free, no credit card required. We're ad-supported so you get unlimited scans, full history, and all features at no cost.
+            </p>
+          </details>
+          <details style={{ background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
+            <summary style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600 }}>Can I use this in CI/CD?</summary>
+            <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '0.5rem', lineHeight: 1.5 }}>
+              Yes! The CLI returns exit codes (0=pass, 1=fail). Run <code style={{ color: '#38bdf8', fontSize: '0.75rem' }}>npx mcp-scanner scan &lt;endpoint&gt;</code> in your pipeline.
+            </p>
+          </details>
+        </div>
+
+        {/* Ad Banner */}
+        <div style={{ marginTop: '1.5rem' }}>
+          <AdBanner compact />
+        </div>
       </div>
     </div>
   );
