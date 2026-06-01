@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import PricingPage from './pages/PricingPage';
 import DashboardPage from './pages/DashboardPage';
 import HelpPage from './pages/HelpPage';
+import GuidePage from './pages/GuidePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/pricing" element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<Layout><DashboardPage /></Layout>} />
         <Route path="/help" element={<Layout><HelpPage /></Layout>} />
+        <Route path="/guide" element={<Layout><GuidePage /></Layout>} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

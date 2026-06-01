@@ -48,6 +48,10 @@ async function start() {
   app.use('/api', stripeRoutes);
   app.use('/api', scanRoutes);
 
+  // Badge route (no auth required — embeds need to be public)
+  const { default: badgeRoutes } = await import('./routes/badge.js');
+  app.use('/api', badgeRoutes);
+
   // SEO static files — robots.txt, sitemap.xml, and ads.txt (before catch-all)
   const projectRoot = join(__dirname, '..', '..');
   app.get('/robots.txt', (req, res) => {

@@ -18,6 +18,10 @@ export default function DashboardPage() {
   const [scanResult, setScanResult] = useState(null);
   const [scanError, setScanError] = useState('');
 
+  const user = JSON.parse(localStorage.getItem('mcp_user') || '{}');
+  const badgeUrl = user.id ? `/api/badge/${user.id}.svg` : null;
+  const markdownEmbed = badgeUrl ? `[![MCP Trust Score](${window.location.origin}${badgeUrl})](${window.location.origin}/dashboard)` : '';
+
   useEffect(() => {
     Promise.all([
       getScanStats().catch(() => null),
@@ -175,6 +179,37 @@ export default function DashboardPage() {
           ))}
         </div>
       )}
+
+      {/* Trust Score Badge */}
+      <div className="card" style={{ marginTop: '2rem' }}>
+        <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '0.75rem' }}>🏆 Trust Score Badge</h3>
+        <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1rem' }}>
+          Embed your latest scan result in your README or website. Dynamically updates when you run new scans.
+        </p>
+        {stats?.total_scans > 0 ? (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            {badgeUrl && (
+              <img 
+                src={badgeUrl}
+                alt="MCP Trust Score"
+                style={{ borderRadius: '0.5rem', border: '1px solid #334155' }}
+                onError={e => e.target.style.display = 'none'}
+              />
+            )}
+            <div style={{ flex: 1, minWidth: 280 }}>
+              <label style={{ display: 'block', color: '#64748b', fontSize: '0.75rem', fontWeight: 500, marginBottom: '0.25rem' }}>
+                Markdown
+              </label>
+              <pre style={{ background: '#0f172a', padding: '0.75rem', borderRadius: '0.5rem', fontSize: '0.75rem', color: '#38bdf8', overflow: 'auto', margin: 0 }}
+                onClick={e => { navigator.clipboard?.writeText(e.target.textContent); }}>
+                {markdownEmbed}
+              </pre>
+            </div>
+          </div>
+        ) : (
+          <p style={{ color: '#64748b', fontSize: '0.85rem' }}>Run a scan first, then come back to get your embeddable badge!</p>
+        )}
+      </div>
 
       {/* CI/CD Integration Info */}
       <div className="card" style={{ marginTop: '2rem' }}>
