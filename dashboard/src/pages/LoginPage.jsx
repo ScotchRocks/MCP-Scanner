@@ -95,7 +95,13 @@ export default function LoginPage() {
               Yes! 100% free, no credit card required. We're ad-supported so you get unlimited scans, full history, and all features at no cost.
             </p>
           </details>
-          <details style={{ background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
+          <details style={{ marginBottom: '0.5rem', background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
+            <summary style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600 }}>Is my email safe?</summary>
+            <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '0.5rem', lineHeight: 1.5 }}>
+              Yes — we only use your email to save your scan history. We never share, sell, or spam it. No password needed, no tracking, no nonsense.
+            </p>
+          </details>
+          <details style={{ marginBottom: '0.5rem', background: '#0f172a', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid #1e293b', cursor: 'pointer' }}>
             <summary style={{ color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600 }}>Can I use this in CI/CD?</summary>
             <p style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '0.5rem', lineHeight: 1.5 }}>
               Yes! The CLI returns exit codes (0=pass, 1=fail). Run <code style={{ color: '#38bdf8', fontSize: '0.75rem' }}>npx mcp-scanner scan &lt;endpoint&gt;</code> in your pipeline.

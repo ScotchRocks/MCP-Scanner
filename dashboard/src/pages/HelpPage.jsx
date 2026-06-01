@@ -23,6 +23,10 @@ export default function HelpPage() {
       a: 'Run npx mcp-security-scanner scan <endpoint-url> in your terminal. Use --output json for JSON format. Use --help to see all options including batch scanning.',
     },
     {
+      q: 'Is my email safe?',
+      a: 'Yes — we only use your email to save your scan history. We never share, sell, or spam it. No tracking, no nonsense.',
+    },
+    {
       q: 'Can I integrate this with CI/CD?',
       a: 'Yes! The CLI returns exit code 0 for pass (score ≥ 50) and 1 for fail. See the CI/CD section on the Dashboard for a GitHub Actions example.',
     },
